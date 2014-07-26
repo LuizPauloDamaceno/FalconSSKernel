@@ -679,9 +679,119 @@ config ARIMA_GPS_ELNA
 	---help---
 	  Say yes if you want GPS eLNA driver.
 	  If unsure, say N here.
-
 	  To compile this driver as a module, choose m here. The module will
 	  be called gps_elna.
+
+config C55_CTRL
+	tristate "TI C55 Control driver"
+	help
+	  This option enables device driver to control the TI C55 IC. This
+	  is intended to be a simple driver which only exports the GPIOs
+	  for user space use.
+
+config ALSA_TO_H2W
+	tristate "ALSA to H2W wired headset detection converter"
+	help
+	  This option enables a device driver that attach to the input queue and
+	  and exposes EV_SW events SW_HEADPHONE_INSERT & SW_MICROPHONE_INSERT in
+	  /sys/class/switch/h2w/state used by Android headset observer.
+	default n
+
+config HOB_SHARED_RAM
+	bool "HOB RAM MMAP Client"
+	depends on OF
+	help
+	  Provide mechanism to access hob storage shared memory on apps
+	  processor. HOB - or the Hand Over Block - is the staging area for
+	  phasing data.
+	default n
+
+config DROPBOX
+	tristate "Dropbox sysfs support"
+	default y
+	help
+	  This option enables a sysfs interface for drivers to send text or
+	  binary events to the Android dropbox. A lightweight userspace daemon
+	  polls the sysfs files and copies the data into dropbox using the built
+	  in dropbox manager service.  This enables fast and simple logging of
+	  various critical events from kernel drivers.
+
+config USR_RESET_WARNING
+	tristate "User reset warning driver"
+	help
+	  This option enables a device driver that monitors user reset warning
+	  GPIO.If the driver receives the warning it calls kernel_halt to notify
+	  drivers registered for the reboot notification about incoming HW reset.
+	default n
+
+config SENSORS_LIS3DH_MOT
+	tristate "LIS3DH_MOT Accelerometer"
+	default n
+	depends on I2C
+	help
+	 Say yes here if you wish to include the ST Micro
+	 LIS3DH Mot accelerometer driver.
+
+config SENSORS_BMA2X2
+	tristate "BMA255/BMA250E/BMA222E/BMA280 acceleration sensor support"
+	default n
+	depends on I2C
+	help
+	  If you say yes here you get support for Bosch Sensortec's
+	  acceleration sensors BMA255/BMA250E/BMA222E/BMA280.
+
+config SENSORS_BMA2X2_DOUBLE_TAP
+	tristate "Enable BMA2X2 Double Tap To Wake sensor support"
+	depends on SENSORS_BMA2X2
+	default n
+	help
+	  If you say yes here you get support for Bosch Sensortec's
+	  double tap detect sensor.
+
+config SENSORS_BMA2X2_SCREEN_ROTATION
+	tristate "Enable BMA2X2 Screen rotation sensor support"
+	depends on SENSORS_BMA2X2
+	default n
+	help
+	  If you say yes here you get support for Bosch Sensortec's
+	  screen rotation sensor.
+
+config SENSORS_BMA2X2_SIG_MOTION
+	tristate "Enable BMA2X2 Sig Motion sensor support"
+	depends on SENSORS_BMA2X2
+	default n
+	help
+	  If you say yes here you get support for Bosch Sensortec's
+	  significant motion sensor.
+
+config SENSORS_BMG
+	tristate "Bosch Gyroscope Sensor Driver"
+	default n
+	depends on I2C
+	help
+	  If you say yes here you get support for Bosch Sensortec's
+	  gyroscope sensor drivers of BMG160/BMI055/etc.
+
+config SENSORS_BMM050
+	tristate "BMM050 Magnetic Sensor Driver"
+	default n
+	depends on I2C
+	help
+	  BMM050 Magnetic Sensor Driver implemented by Bosch-Sensortec.
+
+config UID_CPUTIME
+	tristate "Per-UID cpu time statistics"
+	depends on PROFILING
+	help
+	  Per UID based cpu time statistics exported to /proc/uid_cputime
+	  
+config HPH_HIGH_PERF
+	bool "Enable Headset in high performance"
+	default n
+	help
+	 Invoke class AB mode for headset path when sample rate
+	 is set to 192KHz and bit width is set to 24. Change enables
+	 headset path in Ultra High Quality Audio(UHQA)mode.
 
 config BLX
        bool "Support for Battery Life eXtender"
