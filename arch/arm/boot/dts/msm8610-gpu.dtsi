@@ -55,37 +55,56 @@
 			#size-cells = <0>;
 
 			compatible = "qcom,gpu-pwrlevels";
-
+		
 			qcom,gpu-pwrlevel@0 {
 				reg = <0>;
+				qcom,gpu-freq = <550000000>;
+				qcom,bus-freq = <3>;
+				qcom,io-fraction = <0>;
+			};
+			qcom,gpu-pwrlevel@1 {
+				reg = <1>;
+				qcom,gpu-freq = <500000000>;
+				qcom,bus-freq = <3>;
+				qcom,io-fraction = <0>;
+			};
+			qcom,gpu-pwrlevel@2 {
+				reg = <2>;
+				qcom,gpu-freq = <450000000>;
+				qcom,bus-freq = <3>;
+				qcom,io-fraction = <0>;
+			};
+
+			qcom,gpu-pwrlevel@3 {
+				reg = <3>;
 				qcom,gpu-freq = <400000000>;
 				qcom,bus-freq = <3>;
 				qcom,io-fraction = <0>;
 			};
 
-			qcom,gpu-pwrlevel@1 {
-				reg = <1>;
+			qcom,gpu-pwrlevel@4 {
+				reg = <4>;
 				qcom,gpu-freq = <300000000>;
 				qcom,bus-freq = <2>;
 				qcom,io-fraction = <33>;
 			};
 
-			qcom,gpu-pwrlevel@2 {
-				reg = <2>;
+			qcom,gpu-pwrlevel@5 {
+				reg = <5>;
 				qcom,gpu-freq = <200000000>;
 				qcom,bus-freq = <2>;
 				qcom,io-fraction = <33>;
 			};
 
-			qcom,gpu-pwrlevel@3 {
-				reg = <3>;
+			qcom,gpu-pwrlevel@6 {
+				reg = <6>;
 				qcom,gpu-freq = <150000000>;
 				qcom,bus-freq = <1>;
 				qcom,io-fraction = <100>;
 			};
 
-			qcom,gpu-pwrlevel@4 {
-				reg = <4>;
+			qcom,gpu-pwrlevel@7 {
+				reg = <7>;
 				qcom,gpu-freq = <27000000>;
 				qcom,bus-freq = <0>;
 				qcom,io-fraction = <0>;
@@ -128,7 +147,7 @@
 			qcom,energy-leakage-coeff-d = <0>;
 
 			qcom,power-current-temp = <25>;
-			qcom,power-num-freq = <4>;
+			qcom,power-num-freq = <7>;
 
 			qcom,dcvs-freq@0 {
 				reg = <0>;
@@ -138,7 +157,7 @@
 				qcom,active-energy-offset = <100>;
 				qcom,leakage-energy-offset = <0>;
 			};
-
+			
 			qcom,dcvs-freq@1 {
 				reg = <1>;
 				qcom,freq = <0>;
@@ -147,7 +166,6 @@
 				qcom,active-energy-offset = <100>;
 				qcom,leakage-energy-offset = <0>;
 			};
-
 			qcom,dcvs-freq@2 {
 				reg = <2>;
 				qcom,freq = <0>;
@@ -156,9 +174,44 @@
 				qcom,active-energy-offset = <100>;
 				qcom,leakage-energy-offset = <0>;
 			};
-
 			qcom,dcvs-freq@3 {
 				reg = <3>;
+				qcom,freq = <0>;
+				qcom,voltage = <0>;
+				qcom,is_trans_level = <0>;
+				qcom,active-energy-offset = <100>;
+				qcom,leakage-energy-offset = <0>;
+			};
+
+			qcom,dcvs-freq@4 {
+				reg = <4>;
+				qcom,freq = <0>;
+				qcom,voltage = <0>;
+				qcom,is_trans_level = <0>;
+				qcom,active-energy-offset = <100>;
+				qcom,leakage-energy-offset = <0>;
+			};
+
+			qcom,dcvs-freq@5 {
+				reg = <5>;
+				qcom,freq = <0>;
+				qcom,voltage = <0>;
+				qcom,is_trans_level = <0>;
+				qcom,active-energy-offset = <100>;
+				qcom,leakage-energy-offset = <0>;
+			};
+
+			qcom,dcvs-freq@6 {
+				reg = <6>;
+				qcom,freq = <0>;
+				qcom,voltage = <0>;
+				qcom,is_trans_level = <0>;
+				qcom,active-energy-offset = <100>;
+				qcom,leakage-energy-offset = <0>;
+			};
+
+			qcom,dcvs-freq@7 {
+				reg = <7>;
 				qcom,freq = <0>;
 				qcom,voltage = <0>;
 				qcom,is_trans_level = <0>;
