@@ -57,19 +57,21 @@
 			#size-cells = <1>;
 			status = "disabled";
 
-			qcom,vddmax-mv = <4200>;
-			qcom,vddsafe-mv = <4230>;
-			qcom,vinmin-mv = <4300>;
+			qcom,vddmax-mv = <4300>;
+			qcom,vddsafe-mv = <4250>;
+			qcom,vinmin-mv = <4250>;
 			qcom,vbatdet-mv = <4100>;
-			qcom,ibatmax-ma = <1500>;
+			qcom,ibatmax-ma = <2000>;
 			qcom,ibatterm-ma = <100>;
-			qcom,ibatsafe-ma = <1500>;
-			qcom,thermal-mitigation = <1500 700 600 325>;
+			qcom,ibatsafe-ma = <2000>;
+			qcom,thermal-mitigation = <2000 1500 1300 500>;
 			qcom,vbatdet-delta-mv = <100>;
-			qcom,resume-soc = <99>;
+			qcom,resume-soc = <100>;
 			qcom,tchg-mins = <150>;
 			qcom,chg-vadc = <&pm8110_vadc>;
 			qcom,chg-adc_tm = <&pm8110_adc_tm>;
+			qcom,cycle-counter-en;
+			qcom,capacity-learning-on;
 
 			qcom,chgr@1000 {
 				status = "disabled";

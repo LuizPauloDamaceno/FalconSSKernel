@@ -3753,7 +3753,7 @@ qpnp_chg_batt_temp_warning(struct qpnp_chg_chip *chip)
 				WARNING_EVENT_TRIGGER = CHARGING_EVENT_NORMAL;
 				qpnp_chg_buck_control(chip, 1);
 				qpnp_chg_tchg_max_en(chip, 1);
-				qpnp_chg_iusbmax_set(chip, 1300);
+				qpnp_chg_iusbmax_set(chip, 2000);
 				qpnp_chg_vddmax_and_trim_set(chip,CHARGING_FULL_VOLTAGE, 10);
 			} else
 				pr_debug("TEMPERATURE_OVER_RANGE_THREE_TIMES");
@@ -3777,7 +3777,7 @@ qpnp_chg_batt_temp_warning(struct qpnp_chg_chip *chip)
 		WARNING_EVENT_TRIGGER = CHARGING_EVENT_NORMAL;
 		if (temper < 450) {
 			qpnp_chg_tchg_max_en(chip, 1);
-			qpnp_chg_iusbmax_set(chip, 1300);
+			qpnp_chg_iusbmax_set(chip, 2000);
 			qpnp_chg_vddmax_and_trim_set(chip,CHARGING_FULL_VOLTAGE, 10);
 		} else {
 			qpnp_chg_iusbmax_set(chip, 400);

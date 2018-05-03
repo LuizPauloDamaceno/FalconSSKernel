@@ -11,7 +11,7 @@
  */
 
 qcom,qrd-4v2-1300mah-data {
-	qcom,fcc-mah = <1300>;
+	qcom,fcc-mah = <1500>;
 	qcom,default-rbatt-mohm = <172>;
 	qcom,rbatt-capacitive-mohm = <0>;
 	qcom,flat-ocv-threshold-uv = <3800000>;
