@@ -539,5 +539,4 @@ config QNS_SYSTEM
 	  kernel driver for a battery charging.
 	  This adds sysfs interface which enables QNS daemon to access it.
 
->>>>>>> 418de63... drivers: power: Add Qnovo Interface for QNS
 endif # POWER_SUPPLY
