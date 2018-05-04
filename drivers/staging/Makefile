@@ -58,6 +58,5 @@ obj-$(CONFIG_PHONE)		+= telephony/
 obj-$(CONFIG_RAMSTER)		+= ramster/
 obj-$(CONFIG_USB_WPAN_HCD)	+= ozwpan/
 obj-$(CONFIG_PRONTO_WLAN)	+= prima/
-obj-$(CONFIG_PRIMA_WLAN_LEGACY)	+= prima_legacy/
 obj-$(CONFIG_SNAPPY_COMPRESS)   += snappy/
 obj-$(CONFIG_SNAPPY_DECOMPRESS) += snappy/
