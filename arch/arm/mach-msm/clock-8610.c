@@ -561,7 +561,6 @@ static struct pll_freq_tbl apcs_pll_freq[] = {
 	F_APCS_PLL( 998400000, 52, 0x0, 0x1, 0x0, 0x0, 0x0),
 	F_APCS_PLL(1190400000, 62, 0x0, 0x1, 0x0, 0x0, 0x0),
 	F_APCS_PLL(1228800000, 64, 0x0, 0x1, 0x0, 0x0, 0x0),
-	F_APCS_PLL(1286400000, 67, 0x0, 0x1, 0x0, 0x0, 0x0),
 	PLL_F_END
 };
 
@@ -661,7 +660,7 @@ static struct pll_clk mmpll1_clk_src = {
 	.c = {
 		.parent = &gcc_xo_clk_src.c,
 		.dbg_name = "mmpll1_clk_src",
-		.rate = 1600000000,
+		.rate = 1300000000,
 		.ops = &clk_ops_local_pll,
 		CLK_INIT(mmpll1_clk_src.c),
 	},
@@ -1666,9 +1665,8 @@ static struct clk_freq_tbl ftbl_oxili_gfx3d_clk[] = {
 	F_MM(150000000,  gpll0,  4, 0, 0),
 	F_MM(200000000,  gpll0,  3, 0, 0),
 	F_MM(300000000,  gpll0,  2, 0, 0),
-	F_MM(400000000, mmpll1,  3.5, 0, 0),
-	F_MM(500000000, mmpll1,  3, 0, 0),
-	F_MM(533000000, mmpll1,  3, 0, 0),
+	F_MM(400000000, mmpll1,  3, 0, 0),
+	F_MM(500000000, mmpll1,  2.5, 0, 0),
 	F_END,
 };
 
@@ -1682,7 +1680,7 @@ static struct rcg_clk gfx3d_clk_src = {
 		.dbg_name = "gfx3d_clk_src",
 		.ops = &clk_ops_rcg,
 		VDD_DIG_FMAX_MAP3(LOW, 150000000, NOMINAL, 300000000, HIGH,
-					533000000),
+					500000000),
 		CLK_INIT(gfx3d_clk_src.c),
 	},
 };
