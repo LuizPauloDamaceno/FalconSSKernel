@@ -58,8 +58,8 @@
 			status = "ok";
 
 			qcom,vddmax-mv = <4300>;
-			qcom,vddsafe-mv = <4250>;
-			qcom,vinmin-mv = <4250>;
+			qcom,vddsafe-mv = <4300>;
+			qcom,vinmin-mv = <4300>;
 			qcom,vbatdet-mv = <4100>;
 			qcom,ibatmax-ma = <2000>;
 			qcom,ibatterm-ma = <100>;
@@ -329,7 +329,7 @@
 			status = "ok";
 
 			qcom,r-sense-uohm = <10000>;
-			qcom,v-cutoff-uv = <325000>;
+			qcom,v-cutoff-uv = <320000>;
 			qcom,max-voltage-uv = <4300000>;
 			qcom,r-conn-mohm = <0>;
 			qcom,shutdown-soc-valid-limit = <20>;
@@ -342,7 +342,7 @@
 			qcom,calculate-soc-ms = <20000>;
 			qcom,chg-term-ua = <100000>;
 			qcom,batt-type = <6>;
-			qcom,low-voltage-threshold = <3420000>;
+			qcom,low-voltage-threshold = <3450000>;
 			qcom,tm-temp-margin = <5000>;
 			qcom,low-ocv-correction-limit-uv = <100>;
 			qcom,high-ocv-correction-limit-uv = <250>;

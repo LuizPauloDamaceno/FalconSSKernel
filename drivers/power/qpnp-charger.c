@@ -2684,7 +2684,7 @@ qpnp_batt_external_power_changed(struct power_supply *psy)
 							OVP_USB_WALL_TRSH_MA);
 			} else {
 				if (telephony_on) {
-					qpnp_chg_iusbmax_set(chip, 400);
+					qpnp_chg_iusbmax_set(chip, 500);
 					qpnp_chg_vddmax_and_trim_set(chip_pointer,3980,10);
 					pr_debug("batt_set_telephony_status--In Talk mode");
 				} else {
@@ -2766,7 +2766,7 @@ qpnp_batt_power_get_property(struct power_supply *psy,
 		val->intval = get_prop_batt_present(chip);
 		break;
 	case POWER_SUPPLY_PROP_TECHNOLOGY:
-		val->intval = POWER_SUPPLY_TECHNOLOGY_LION;
+		val->intval = POWER_SUPPLY_TECHNOLOGY_LIPO;
 		break;
 	case POWER_SUPPLY_PROP_VOLTAGE_MAX_DESIGN:
 		val->intval = chip->max_voltage_mv * 1000;
@@ -3589,7 +3589,7 @@ qpnp_eoc_work(struct work_struct *work)
 	}
 
 	if (telephony_on >= 1) {
-		qpnp_chg_iusbmax_set(chip, 400);
+		qpnp_chg_iusbmax_set(chip, 500);
 		qpnp_chg_vddmax_and_trim_set(chip_pointer,3980,10);
 		pr_debug("batt_set_telephony_status--In Talk mode");
 		goto stop_eoc;
