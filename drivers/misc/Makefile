@@ -83,7 +83,6 @@ obj-$(CONFIG_SEC_DRIVER) += sec/
 obj-$(CONFIG_C55_CTRL) += c55_ctrl.o
 obj-$(CONFIG_ALSA_TO_H2W) += alsa-to-h2w-headset.o
 obj-$(CONFIG_HOB_SHARED_RAM) += hob_ram_mmap.o
-obj-$(CONFIG_DROPBOX) += dropbox.o
 obj-$(CONFIG_SENSORS_AK8963)	+= akm8963.o
 obj-$(CONFIG_USR_RESET_WARNING) += usr-reset-warning.o
 obj-$(CONFIG_SENSORS_LIS3DH_MOT)    += lis3dh_mot.o

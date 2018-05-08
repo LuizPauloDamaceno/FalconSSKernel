@@ -660,7 +660,7 @@ static struct pll_clk mmpll1_clk_src = {
 	.c = {
 		.parent = &gcc_xo_clk_src.c,
 		.dbg_name = "mmpll1_clk_src",
-		.rate = 1300000000,
+		.rate = 1500000000,
 		.ops = &clk_ops_local_pll,
 		CLK_INIT(mmpll1_clk_src.c),
 	},
@@ -1666,7 +1666,7 @@ static struct clk_freq_tbl ftbl_oxili_gfx3d_clk[] = {
 	F_MM(200000000,  gpll0,  3, 0, 0),
 	F_MM(300000000,  gpll0,  2, 0, 0),
 	F_MM(400000000, mmpll1,  3, 0, 0),
-	F_MM(520000000, mmpll1,  2.5, 0, 0),
+	F_MM(600000000, mmpll1,  2.5, 0, 0),
 	F_END,
 };
 
@@ -1680,7 +1680,7 @@ static struct rcg_clk gfx3d_clk_src = {
 		.dbg_name = "gfx3d_clk_src",
 		.ops = &clk_ops_rcg,
 		VDD_DIG_FMAX_MAP3(LOW, 150000000, NOMINAL, 300000000, HIGH,
-					520000000),
+					600000000),
 		CLK_INIT(gfx3d_clk_src.c),
 	},
 };
@@ -3231,7 +3231,7 @@ static struct pll_config mmpll0_config __initdata = {
 	.main_output_mask = BIT(0),
 };
 
-/* MMPLL1 at 1400 MHz, main output enabled. */
+/* MMPLL1 at 1500 MHz, main output enabled. */
 static struct pll_config mmpll1_config __initdata = {
 	.l = 0x3E,
 	.m = 0x1,

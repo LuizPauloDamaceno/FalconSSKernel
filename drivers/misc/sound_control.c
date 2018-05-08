@@ -14,7 +14,7 @@
 
 #define SOUNDCONTROL_VERSION 0
 
-extern int high_perf_mode;
+int high_perf_mode;
 
 static ssize_t hph_perf_show(struct device *dev,
 		struct device_attribute *attr, char *buf)
