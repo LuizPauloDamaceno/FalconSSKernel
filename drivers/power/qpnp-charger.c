@@ -221,9 +221,9 @@
 #define POWER_STAGE_WA			BIT(2)
 
 #define CHG_MAINTENANCE_PERIOD	1000
-#define CHARGING_MAINT_VOLT_S1   4215
-#define CHARGING_MAINT_VOLT_S2   4275
-#define CHARGING_FULL_VOLTAGE    4300
+#define CHARGING_MAINT_VOLT_S1   4325
+#define CHARGING_MAINT_VOLT_S2   4400
+#define CHARGING_FULL_VOLTAGE    4350
 
 struct qpnp_chg_irq {
 	int		irq;
@@ -1012,8 +1012,8 @@ qpnp_chg_iusbmax_set(struct qpnp_chg_chip *chip, int mA)
 	return rc;
 }
 
-#define QPNP_CHG_VINMIN_MIN_MV		4000
-#define QPNP_CHG_VINMIN_HIGH_MIN_MV	6200
+#define QPNP_CHG_VINMIN_MIN_MV		4400
+#define QPNP_CHG_VINMIN_HIGH_MIN_MV	5700
 #define QPNP_CHG_VINMIN_HIGH_MIN_VAL	0x2B
 #define QPNP_CHG_VINMIN_MAX_MV		9600
 #define QPNP_CHG_VINMIN_STEP_MV		50
