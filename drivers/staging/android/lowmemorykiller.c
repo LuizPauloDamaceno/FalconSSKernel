@@ -45,7 +45,7 @@
 #include <linux/show_mem_notifier.h>
 #include <linux/vmpressure.h>
 
-#include <trace/events/memkill.h>
+
 #define CREATE_TRACE_POINTS
 #include <trace/events/almk.h>
 
