@@ -163,29 +163,6 @@ static inline struct kgsl_cmdbatch *adreno_dispatcher_get_cmdbatch(
 			CMDQUEUE_NEXT(drawctxt->cmdqueue_head,
 			ADRENO_CONTEXT_CMDQUEUE_SIZE);
 		drawctxt->queued--;
-
-		if (!test_bit(CMDBATCH_FLAG_SKIP, &cmdbatch->priv))
-			pending = true;
-	}
-
-	spin_lock(&cmdbatch->lock);
-	if (!list_empty(&cmdbatch->synclist))
-		pending = true;
-	spin_unlock(&cmdbatch->lock);
-
-	/*
-	 * If changes are pending and the canary timer hasn't been
-	 * started yet, start it
-	 */
-	if (pending) {
-		/*
-		 * If syncpoints are pending start the canary timer if
-		 * it hasn't already been started
-		 */
-		if (!timer_pending(&cmdbatch->timer))
-			mod_timer(&cmdbatch->timer, jiffies + msecs_to_jiffies(5000));
-
-		return ERR_PTR(-EAGAIN);
 	}
 
 done:
