@@ -50,6 +50,7 @@ static struct msm_bus_paths bw_level_tbl_8610[] = {
 	[3] =  BW_MBPS(800), /* At least 100 MHz on bus. */
 	[4] = BW_MBPS(1600), /* At least 200 MHz on bus. */
 	[5] = BW_MBPS(2664), /* At least 333 MHz on bus. */
+	[6] = BW_MBPS(3200), /* At least 400 MHz on bus. */ 
 };
 
 static struct msm_bus_scale_pdata bus_client_pdata = {
@@ -120,7 +121,7 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8610[] = {
 	{ 1,  787200, ACPUPLL, 5, 0,   CPR_CORNER_4, 0, 4 },
 	{ 1,  998400, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 5 },
 	{ 1, 1190400, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 5 },
-	{ 1, 1248000, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 5 },
+	{ 1, 1248000, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 6 },
 	{ 0 }
 };
 
