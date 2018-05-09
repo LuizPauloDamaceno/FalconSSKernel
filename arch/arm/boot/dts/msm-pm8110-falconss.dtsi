@@ -64,9 +64,9 @@
 			qcom,cool-bat-decidegc = <22>;
 			qcom,ibat-calibration-enabled = <1>;
 			qcom,vddmax-mv = <4350>;
-			qcom,vddsafe-mv = <4400>;
+			qcom,vddsafe-mv = <4325>;
 			qcom,vinmin-mv = <4325>;
-			qcom,vbatdet-mv = <4205>;
+			qcom,vbatdet-mv = <4100>;
 			qcom,vbatweak-mv = <3200>;
 			qcom,ibatmax-ma = <2100>;
 			qcom,ibatterm-ma = <100>;
@@ -341,8 +341,8 @@
 			qcom,r-conn-mohm = <100>;
 			qcom,shutdown-soc-valid-limit = <20>;
 			qcom,adjust-soc-low-threshold = <15>;
-			qcom,ocv-voltage-high-threshold-uv = <3750000>;
-			qcom,ocv-voltage-low-threshold-uv = <3520000>;
+			qcom,ocv-voltage-high-threshold-uv = <3700000>;
+			qcom,ocv-voltage-low-threshold-uv = <3500000>;
 			qcom,low-soc-calculate-soc-threshold = <15>;
 			qcom,low-voltage-calculate-soc-ms = <1000>;
 			qcom,low-soc-calculate-soc-ms = <1000>;
