@@ -113,6 +113,6 @@ struct bms_battery_data Arima_Falcon_1700mAh_data = {
 	.max_voltage_uv		= 4300000,
 	.cutoff_uv		= 3000000,
 	.rbatt_capacitive_mohm	= 50,
-	.default_rbatt_mohm	= 158
+	.default_rbatt_mohm	= 155
 };
 
