@@ -661,7 +661,7 @@ static struct pll_clk mmpll1_clk_src = {
 	.c = {
 		.parent = &gcc_xo_clk_src.c,
 		.dbg_name = "mmpll1_clk_src",
-		.rate = 1500000000,
+		.rate = 1600000000,
 		.ops = &clk_ops_local_pll,
 		CLK_INIT(mmpll1_clk_src.c),
 	},
@@ -1579,7 +1579,7 @@ static struct clk_ops dsi_dsi_clk_src_ops;
 
 static struct dsi_pll_vco_clk dsi_vco  = {
 	.vco_clk_min =  600000000,
-	.vco_clk_max = 1500000000,
+	.vco_clk_max = 1600000000,
 	.pref_div_ratio = 26,
 	.c = {
 		.parent = &gcc_xo_clk_src.c,
@@ -1666,9 +1666,8 @@ static struct clk_freq_tbl ftbl_oxili_gfx3d_clk[] = {
 	F_MM(150000000,  gpll0,  4, 0, 0),
 	F_MM(200000000,  gpll0,  3, 0, 0),
 	F_MM(300000000,  gpll0,  2, 0, 0),
-	F_MM(400000000, mmpll1,  3, 0, 0),
-	F_MM(525000000, mmpll1,  2.5, 0, 0),
-	F_MM(625000000, mmpll1,  2.5, 0, 0),
+	F_MM(400000000, mmpll1,  3.5, 0, 0), //Set shader to oveclocked clock  (400 * 3.5 = 1400MHz)
+	F_MM(600000000, mmpll1,  2.5, 0, 0), //Set shader to overclocked clock (600 * 2.5 = 1500MHz)
 	F_END,
 };
 
@@ -1681,8 +1680,8 @@ static struct rcg_clk gfx3d_clk_src = {
 	.c = {
 		.dbg_name = "gfx3d_clk_src",
 		.ops = &clk_ops_rcg,
-		VDD_DIG_FMAX_MAP3(LOW, 150000000, NOMINAL, 300000000, HIGH,
-					625000000),
+		VDD_DIG_FMAX_MAP3(LOW, 150000000, NOMINAL, 400000000, HIGH,
+					630000000),
 		CLK_INIT(gfx3d_clk_src.c),
 	},
 };
