@@ -20,12 +20,12 @@
 #define KGSL_PWRFLAGS_OFF  0
 
 #define KGSL_PWRLEVEL_TURBO 0
-#define KGSL_PWRLEVEL_NOMINAL 2
+#define KGSL_PWRLEVEL_NOMINAL 1
 #define KGSL_PWRLEVEL_LAST_OFFSET 2
 
 #define KGSL_PWR_ON	0xFFFF
 
-#define KGSL_MAX_CLKS 7
+#define KGSL_MAX_CLKS 6
 
 /* Only two supported levels, min & max */
 #define KGSL_CONSTRAINT_PWR_MAXLEVELS 2

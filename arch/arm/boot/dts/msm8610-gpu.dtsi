@@ -101,7 +101,7 @@
 
 			qcom,gpu-pwrlevel@6 {
 				reg = <6>;
-				qcom,gpu-freq = <37000000>;
+				qcom,gpu-freq = <27000000>;
 				qcom,bus-freq = <0>;
 				qcom,io-fraction = <0>;
 			};
@@ -142,8 +142,8 @@
 			qcom,energy-leakage-coeff-c = <0>;
 			qcom,energy-leakage-coeff-d = <0>;
 
-			qcom,power-current-temp = <32>;
-			qcom,power-num-freq = <8>;
+			qcom,power-current-temp = <25>;
+			qcom,power-num-freq = <7>;
 
 			
 			qcom,dcvs-freq@0 {
@@ -178,7 +178,7 @@
 				qcom,freq = <0>;
 				qcom,voltage = <0>;
 				qcom,is_trans_level = <0>;
-				qcom,active-energy-offset = <333932>;
+				qcom,active-energy-offset = <100>;
 				qcom,leakage-energy-offset = <0>;
 			};
 
@@ -187,7 +187,7 @@
 				qcom,freq = <0>;
 				qcom,voltage = <0>;
 				qcom,is_trans_level = <0>;
-				qcom,active-energy-offset = <497532>;
+				qcom,active-energy-offset = <100>;
 				qcom,leakage-energy-offset = <0>;
 			};
 
@@ -196,7 +196,7 @@
 				qcom,freq = <0>;
 				qcom,voltage = <0>;
 				qcom,is_trans_level = <0>;
-				qcom,active-energy-offset = <707610>;
+				qcom,active-energy-offset = <100>;
 				qcom,leakage-energy-offset = <0>;
 			};
 
