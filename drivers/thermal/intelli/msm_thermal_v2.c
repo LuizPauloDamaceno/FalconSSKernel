@@ -39,7 +39,7 @@
 #include <mach/rpm-regulator-smd.h>
 #include <linux/regulator/consumer.h>
 
-#define MAX_CURRENT_UA 1000000
+#define MAX_CURRENT_UA 1200000
 #define MAX_RAILS 5
 #define MAX_THRESHOLD 2
 
@@ -200,7 +200,7 @@ enum ocr_request {
 #define PSM_REG_MODE_FROM_ATTRIBS(attr) \
 	(container_of(attr, struct psm_rail, mode_attr));
 
-#define DEFAULT_POLLING_MS	250
+#define DEFAULT_POLLING_MS	120
 /* last 3 minutes based on 250ms polling cycle */
 #define MAX_HISTORY_SZ		((3*60*1000) / DEFAULT_POLLING_MS)
 

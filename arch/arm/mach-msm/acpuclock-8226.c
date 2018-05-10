@@ -52,6 +52,7 @@ static struct msm_bus_paths bw_level_tbl_8610[] = {
 	[5] = BW_MBPS(2664), /* At least 333 MHz on bus. */
 	[6] = BW_MBPS(3200), /* At least 400 MHz on bus. */
 	[7] = BW_MBPS(3464), /* At least 433 MHz on bus. */  
+	[8] = BW_MBPS(4000), /* At least 500 MHz on bus. */
 };
 
 static struct msm_bus_scale_pdata bus_client_pdata = {
@@ -69,7 +70,8 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p1[] = {
 	{ 1,  998400, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 7 },
 	{ 1, 1094400, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 7 },
 	{ 0, 1190400, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 7 },
-	{ 0, 1248000, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 7 },
+	{ 1, 1248000, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 7 },
+	{ 0, 1267200, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 8 },
 	{ 0 }
 };
 
@@ -82,6 +84,7 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p2[] = {
 	{ 1, 1094400, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 7 },
 	{ 1, 1190400, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 7 },
 	{ 1, 1248000, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 7 },
+	{ 1, 1267200, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 8 },
 	{ 0 }
 };
 
@@ -116,13 +119,14 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p6[] = {
 };
 
 static struct clkctl_acpu_speed acpu_freq_tbl_8610[] = {
-	{ 1,  300000, PLL0,    4, 2,   CPR_CORNER_2,    0, 3 },
+	{ 1,  300000, PLL0,    4, 2,   CPR_CORNER_2,    0, 2 },
 	{ 1,  384000, ACPUPLL, 5, 2,   CPR_CORNER_2,    0, 3 },
 	{ 1,  600000, PLL0,    4, 0,   CPR_CORNER_4, 0, 4 },
 	{ 1,  787200, ACPUPLL, 5, 0,   CPR_CORNER_4, 0, 4 },
 	{ 1,  998400, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 5 },
 	{ 1, 1190400, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 6 },
 	{ 1, 1248000, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 7 },
+	{ 1, 1267200, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 8 },
 	{ 0 }
 };
 

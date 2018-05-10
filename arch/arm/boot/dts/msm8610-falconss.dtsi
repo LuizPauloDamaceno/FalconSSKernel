@@ -513,24 +513,27 @@
 		compatible = "qcom,cpubw";
 		qcom,cpu-mem-ports = <1 512>;
 		qcom,bw-tbl =
+			<  400 /*  50 MHz */ >,
 			<  800 /* 100 MHz */ >,
 			< 1600 /* 200 MHz */ >,
 			< 2664 /* 333 MHz */ >,
 			< 3200 /* 400 MHz */ >,
-			< 3464 /* 433 MHz */ >;
+			< 3464 /* 433 MHz */ >,
+			< 4000 /* 500 MHz */ >;
 	};
 
 	qcom,msm-cpufreq@0 {
 		reg = <0 4>;
 		compatible = "qcom,msm-cpufreq";
 		qcom,cpufreq-table =
-			<  300000  800 >,
+			<  300000  400 >,
 			<  384000  800 >,
 			<  600000 1600 >,
 			<  787200 1600 >,
 			<  998400 2664 >,
 			< 1190400 3200 >,
-			< 1248000 3464 >;
+			< 1248000 3464 >,
+			< 1267200 4000 >;
 	};
 
 	spmi_bus: qcom,spmi@fc4c0000 {
@@ -896,19 +899,19 @@
 	qcom,msm-thermal {
 		compatible = "qcom,msm-thermal";
 		qcom,sensor-id = <5>;
-		qcom,poll-ms = <250>;
-		qcom,limit-temp = <60>;
-		qcom,temp-hysteresis = <10>;
+		qcom,poll-ms = <120>;
+		qcom,limit-temp = <52>;
+		qcom,temp-hysteresis = <2>;
 		qcom,freq-step = <2>;
 		qcom,freq-control-mask = <0xf>;
-		qcom,core-limit-temp = <80>;
-		qcom,core-temp-hysteresis = <10>;
+		qcom,core-limit-temp = <72>;
+		qcom,core-temp-hysteresis = <5>;
 		qcom,core-control-mask = <0xe>;
-		qcom,hotplug-temp = <110>;
-		qcom,hotplug-temp-hysteresis = <20>;
+		qcom,hotplug-temp = <53>;
+		qcom,hotplug-temp-hysteresis = <1>;
 		qcom,cpu-sensors = "tsens_tz_sensor5", "tsens_tz_sensor5";
-		qcom,vdd-restriction-temp = <52>;
-		qcom,vdd-restriction-temp-hysteresis = <49>;
+		qcom,vdd-restriction-temp = <51>;
+		qcom,vdd-restriction-temp-hysteresis = <1>;
 		vdd-dig-supply = <&pm8110_s1_floor_corner>;
 
 		qcom,vdd-dig-rstr{
@@ -919,7 +922,7 @@
 
 		qcom,vdd-apps-rstr{
 			qcom,vdd-rstr-reg = "vdd-apps";
-			qcom,levels = <600000 787200 998400>;
+			qcom,levels = <998400>;
 			qcom,freq-req;
 		};
 	};
