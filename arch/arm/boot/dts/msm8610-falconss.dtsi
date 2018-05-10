@@ -907,8 +907,8 @@
 		qcom,hotplug-temp = <110>;
 		qcom,hotplug-temp-hysteresis = <20>;
 		qcom,cpu-sensors = "tsens_tz_sensor5", "tsens_tz_sensor5";
-		qcom,vdd-restriction-temp = <5>;
-		qcom,vdd-restriction-temp-hysteresis = <10>;
+		qcom,vdd-restriction-temp = <52>;
+		qcom,vdd-restriction-temp-hysteresis = <49>;
 		vdd-dig-supply = <&pm8110_s1_floor_corner>;
 
 		qcom,vdd-dig-rstr{
@@ -1156,7 +1156,7 @@
 		reg = <0x30>;
 		qcom,decimation = <0>;
 		qcom,pre-div-channel-scaling = <0>;
-		qcom,calibration-type = "ratiometric";
+		qcom,calibration-type = "absolute";
 		qcom,scale-function = <1>;
 		qcom,hw-settle-time = <2>;
 		qcom,fast-avg-setup = <0>;
@@ -1189,7 +1189,7 @@
 		reg = <0x13>;
 		qcom,decimation = <0>;
 		qcom,pre-div-channel-scaling = <0>;
-		qcom,calibration-type = "ratiometric";
+		qcom,calibration-type = "absolute";
 		qcom,scale-function = <2>;
 		qcom,hw-settle-time = <2>;
 		qcom,fast-avg-setup = <0>;
@@ -1203,7 +1203,7 @@
 		reg = <0x30>;
 		qcom,decimation = <0>;
 		qcom,pre-div-channel-scaling = <0>;
-		qcom,calibration-type = "ratiometric";
+		qcom,calibration-type = "absolute";
 		qcom,scale-function = <1>;
 		qcom,hw-settle-time = <2>;
 		qcom,fast-avg-setup = <3>;
@@ -1240,7 +1240,7 @@
 		reg = <0x13>;
 		qcom,decimation = <0>;
 		qcom,pre-div-channel-scaling = <0>;
-		qcom,calibration-type = "ratiometric";
+		qcom,calibration-type = "absolute";
 		qcom,scale-function = <2>;
 		qcom,hw-settle-time = <2>;
 		qcom,fast-avg-setup = <0>;
