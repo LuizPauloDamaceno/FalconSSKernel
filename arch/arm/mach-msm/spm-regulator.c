@@ -40,7 +40,7 @@ struct voltage_range {
 
 /* Properties for FTS2 type QPNP PMIC regulators. */
 
-static const struct voltage_range fts2_range0 = {0, 350000, 1275000,  5000};
+static const struct voltage_range fts2_range0 = {0, 350000, 1350000,  5000};
 static const struct voltage_range fts2_range1 = {0, 700000, 2040000, 10000};
 
 #define QPNP_FTS2_REG_TYPE		0x04

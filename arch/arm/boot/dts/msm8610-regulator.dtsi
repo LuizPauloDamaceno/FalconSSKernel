@@ -18,6 +18,8 @@
 			compatible = "qcom,spm-regulator";
 			regulator-name = "8110_s2";
 			reg = <0x1700 0x100>;
+			qcom,boost-current-limit = <11>;
+			qcom,hpm-enable = <1>;
 			regulator-min-microvolt = <900000>;
 			regulator-max-microvolt = <1350000>;
 			qcom,mode = "pwm";
@@ -81,7 +83,7 @@
 
 		vdd-mx-supply = <&pm8110_l3_ao>;
 		qcom,vdd-mx-vmax = <1350000>;
-		qcom,vdd-mx-vmin-method = <1>;
+		qcom,vdd-mx-vmin-method = <0>;
 
 		qcom,cpr-ref-clk = <19200>;
 		qcom,cpr-timer-delay = <5000>;
@@ -121,8 +123,10 @@
 		status = "okay";
 		pm8110_s1: regulator-s1 {
 			status = "okay";
+			qcom,boost-current-limit = <11>;
+			qcom,hpm-enable = <1>;
 			regulator-min-microvolt = <500000>;
-			regulator-max-microvolt = <1275000>;
+			regulator-max-microvolt = <1325000>;
 		};
 
 		pm8110_s1_corner: regulator-s1-corner {
@@ -200,7 +204,7 @@
 		status = "okay";
 		pm8110_l3: regulator-l3 {
 			regulator-min-microvolt = <750000>;
-			regulator-max-microvolt = <1275000>;
+			regulator-max-microvolt = <1350000>;
 			status = "okay";
 		};
 
@@ -208,8 +212,10 @@
 			compatible = "qcom,rpm-regulator-smd";
 			regulator-name = "8110_l3_ao";
 			qcom,set = <1>;
+			qcom,boost-current-limit = <11>;
+			qcom,hpm-enable = <1>;
 			regulator-min-microvolt = <750000>;
-			regulator-max-microvolt = <1275000>;
+			regulator-max-microvolt = <1350000>;
 			status = "okay";
 		};
 
@@ -218,7 +224,7 @@
 			regulator-name = "8110_l3_so";
 			qcom,set = <2>;
 			regulator-min-microvolt = <750000>;
-			regulator-max-microvolt = <1275000>;
+			regulator-max-microvolt = <1350000>;
 			qcom,init-voltage = <750000>;
 			status = "okay";
 		};

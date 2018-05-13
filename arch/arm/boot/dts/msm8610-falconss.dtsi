@@ -917,8 +917,8 @@
 
 		qcom,vdd-dig-rstr{
 			qcom,vdd-rstr-reg = "vdd-dig";
-			qcom,levels = <5 7 7>; /* Nominal, Super Turbo, Super Turbo */
-			qcom,min-level = <1>; /* No Request */
+			qcom,levels = <7>; /* Super Turbo */
+			qcom,min-level = <5>; /* No Request */
 		};
 
 		qcom,vdd-apps-rstr{
