@@ -14,7 +14,7 @@
 
 static struct single_row_lut fcc_temp = {
 	.x		= {-20, 0, 25, 40, 60},
-	.y		= {1770, 1775, 1760, 1750, 1735},
+	.y		= {1795, 1810, 1820, 1790, 1785},
 	.cols	= 5
 };
 
@@ -69,7 +69,7 @@ static struct pc_temp_ocv_lut pc_temp_ocv = {
 	.temp		= {-20, 0, 25, 40, 60},
 	.percent	= {100, 95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 16, 13, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0},
 	.ocv		= {
-				{4215, 4212, 4211, 4210, 4208},
+				{4225, 4212, 4211, 4210, 4208},
 				{4206, 4175, 4144, 4132, 4122},
 				{4095, 4093, 4089, 4087, 4085},
 				{4049, 4077, 4081, 4081, 4078},
@@ -104,7 +104,7 @@ static struct pc_temp_ocv_lut pc_temp_ocv = {
 };
 
 struct bms_battery_data Arima_Falcon_1700mAh_data = {
-	.fcc					= 1700,
+	.fcc					= 1800,
 	.fcc_temp_lut			= &fcc_temp,
 	.fcc_sf_lut			= &fcc_sf,
 	.pc_temp_ocv_lut		= &pc_temp_ocv,

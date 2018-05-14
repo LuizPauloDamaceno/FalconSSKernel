@@ -18,8 +18,11 @@
 			compatible = "qcom,spm-regulator";
 			regulator-name = "8110_s2";
 			reg = <0x1700 0x100>;
-			qcom,boost-current-limit = <11>;
-			qcom,hpm-enable = <1>;
+			qcom,regulator-type = <1>; //SMPS
+			qcom,hpm-enable = <1>; //Enable HPM Mode
+			qcom,init-smps-mode = <2>; //Force HPM Mode
+			qcom,init-quiet-mode = <1>; //Lower regulator output noise
+			qcom,boost-current-limit = <11>; //3.2A max
 			regulator-min-microvolt = <900000>;
 			regulator-max-microvolt = <1350000>;
 			qcom,mode = "pwm";
@@ -123,8 +126,11 @@
 		status = "okay";
 		pm8110_s1: regulator-s1 {
 			status = "okay";
-			qcom,boost-current-limit = <11>;
-			qcom,hpm-enable = <1>;
+			qcom,regulator-type = <1>; //SMPS
+			qcom,hpm-enable = <1>; //Enable HPM Mode
+			qcom,init-smps-mode = <2>; //Force HPM Mode
+			qcom,init-quiet-mode = <1>; //Lower regulator output noise
+			qcom,boost-current-limit = <11>; //3.2A max
 			regulator-min-microvolt = <500000>;
 			regulator-max-microvolt = <1325000>;
 		};
@@ -212,8 +218,11 @@
 			compatible = "qcom,rpm-regulator-smd";
 			regulator-name = "8110_l3_ao";
 			qcom,set = <1>;
-			qcom,boost-current-limit = <11>;
-			qcom,hpm-enable = <1>;
+			qcom,regulator-type = <1>; //SMPS
+			qcom,hpm-enable = <1>; //Enable HPM Mode
+			qcom,init-smps-mode = <2>; //Force HPM Mode
+			qcom,init-quiet-mode = <1>; //Lower regulator output noise
+			qcom,boost-current-limit = <11>; //3.2A max
 			regulator-min-microvolt = <750000>;
 			regulator-max-microvolt = <1350000>;
 			status = "okay";

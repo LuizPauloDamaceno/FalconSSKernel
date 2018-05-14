@@ -64,8 +64,8 @@
 			qcom,cool-bat-decidegc = <22>;
 			qcom,ibat-calibration-enabled = <1>;
 			qcom,vddmax-mv = <4250>;
-			qcom,vddsafe-mv = <4250>;
-			qcom,vinmin-mv = <4250>;
+			qcom,vddsafe-mv = <4400>;
+			qcom,vinmin-mv = <4200>;
 			qcom,vbatdet-mv = <4100>;
 			qcom,vbatweak-mv = <3400>;
 			qcom,ibatmax-ma = <2100>;
