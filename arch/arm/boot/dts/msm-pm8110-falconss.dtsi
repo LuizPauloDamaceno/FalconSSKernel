@@ -71,11 +71,11 @@
 			qcom,ibatmax-ma = <2100>;
 			qcom,ibatmax-cool-ma = <2100>;
 			qcom,ibatterm-ma = <100>;
-			qcom,ibatsafe-ma = <2100>;
+			qcom,ibatsafe-ma = <1800>;
 			qcom,thermal-mitigation = <2100 1500 1300 500>;
-			qcom,vbatdet-delta-mv = <100>;
-			qcom,resume-soc = <100>;
-			qcom,tchg-mins = <150>;
+			qcom,vbatdet-delta-mv = <60>;
+			qcom,resume-soc = <99>;
+			qcom,tchg-mins = <152>;
 			qcom,chg-vadc = <&pm8110_vadc>;
 			qcom,chg-adc_tm = <&pm8110_adc_tm>;
 			qcom,tchg-mins-usb = <480>;
