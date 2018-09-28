@@ -295,23 +295,23 @@
 
 		cdc-vdda-cp-supply = <&pm8110_s4>;
 		qcom,cdc-vdda-cp-voltage = <1800000 2150000>;
-		qcom,cdc-vdda-cp-current = <650000>;
+		qcom,cdc-vdda-cp-current = <850000>;
 
 		cdc-vdda-h-supply = <&pm8110_l6>;
 		qcom,cdc-vdda-h-voltage = <1800000 1800000>;
-		qcom,cdc-vdda-h-current = <25000>;
+		qcom,cdc-vdda-h-current = <35000>;
 
 		cdc-vdd-px-supply = <&pm8110_l6>;
 		qcom,cdc-vdd-px-voltage = <1800000 1800000>;
-		qcom,cdc-vdd-px-current = <10000>;
+		qcom,cdc-vdd-px-current = <20000>;
 
 		cdc-vdd-1p2v-supply = <&pm8110_l4>;
 		qcom,cdc-vdd-1p2v-voltage = <1200000 1200000>;
-		qcom,cdc-vdd-1p2v-current = <5000>;
+		qcom,cdc-vdd-1p2v-current = <10000>;
 
 		cdc-vdd-mic-bias-supply = <&pm8110_l20>;
 		qcom,cdc-vdd-mic-bias-voltage = <3075000 3075000>;
-		qcom,cdc-vdd-mic-bias-current = <25000>;
+		qcom,cdc-vdd-mic-bias-current = <35000>;
 
 		qcom,cdc-micbias-ldoh-v = <0x3>;
 		qcom,cdc-micbias-cfilt-sel = <0x0>;
