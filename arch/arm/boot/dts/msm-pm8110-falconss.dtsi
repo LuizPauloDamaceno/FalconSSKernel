@@ -63,9 +63,9 @@
 			qcom,warm-bat-decidegc = <50>;
 			qcom,cool-bat-decidegc = <22>;
 			qcom,ibat-calibration-enabled = <1>;
-			qcom,vddmax-mv = <4275>;
-			qcom,vddsafe-mv = <4275>;
-			qcom,vinmin-mv = <4275>;
+			qcom,vddmax-mv = <4200>;
+			qcom,vddsafe-mv = <4200>;
+			qcom,vinmin-mv = <4200>;
 			qcom,vbatdet-mv = <4100>;
 			qcom,vbatweak-mv = <3200>;
 			qcom,ibatmax-ma = <2100>;
@@ -338,7 +338,7 @@
 
 			qcom,r-sense-uohm = <10000>;
 			qcom,v-cutoff-uv = <3100000>;
-			qcom,max-voltage-uv = <4275000>;
+			qcom,max-voltage-uv = <4200000>;
 			qcom,r-conn-mohm = <10>;
 			qcom,shutdown-soc-valid-limit = <20>;
 			qcom,adjust-soc-low-threshold = <15>;
