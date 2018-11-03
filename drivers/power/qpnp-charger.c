@@ -220,10 +220,10 @@
 #define BOOST_FLASH_WA			BIT(1)
 #define POWER_STAGE_WA			BIT(2)
 
-#define CHG_MAINTENANCE_PERIOD	400
-#define CHARGING_MAINT_VOLT_S1   4100
-#define CHARGING_MAINT_VOLT_S2   4180
-#define CHARGING_FULL_VOLTAGE    4200
+#define CHG_MAINTENANCE_PERIOD	5000
+#define CHARGING_MAINT_VOLT_S1   4110
+#define CHARGING_MAINT_VOLT_S2   4200
+#define CHARGING_FULL_VOLTAGE    4250
 
 struct qpnp_chg_irq {
 	int		irq;
@@ -879,7 +879,7 @@ qpnp_chg_is_ichg_loop_active(struct qpnp_chg_chip *chip)
 #define QPNP_CHG_I_MAX_MIN_100		100
 #define QPNP_CHG_I_MAX_MIN_150		150
 #define QPNP_CHG_I_MAX_MIN_MA		200
-#define QPNP_CHG_I_MAX_MAX_MA		2100
+#define QPNP_CHG_I_MAX_MAX_MA		1500
 #define QPNP_CHG_I_MAXSTEP_MA		100
 static int
 qpnp_chg_idcmax_set(struct qpnp_chg_chip *chip, int mA)
@@ -905,7 +905,7 @@ qpnp_chg_idcmax_set(struct qpnp_chg_chip *chip, int mA)
 			chip->dc_chgpth_base + CHGR_I_MAX_REG, 1);
 	}
 
-	dc = 2100 / QPNP_CHG_I_MAXSTEP_MA;
+	dc = 1500 / QPNP_CHG_I_MAXSTEP_MA;
 
 	pr_debug("current=%d setting 0x%x\n", mA, dc);
 	rc = qpnp_chg_write(chip, &dc,
@@ -980,7 +980,7 @@ qpnp_chg_iusbmax_set(struct qpnp_chg_chip *chip, int mA)
 	}
 
 	/* Impose input current limit */
-	mA = 2100;
+	mA = 1500;
 	if (chip->maxinput_usb_ma)
 		mA = (chip->maxinput_usb_ma) <= mA ? chip->maxinput_usb_ma : mA;
 
@@ -3032,7 +3032,7 @@ qpnp_chg_vddsafe_set(struct qpnp_chg_chip *chip, int voltage)
 		chip->chgr_base + CHGR_VDD_SAFE, 1);
 }
 
-#define IBAT_TRIM_TGT_MA		2100
+#define IBAT_TRIM_TGT_MA		1500
 #define IBAT_TRIM_OFFSET_MASK		0x7F
 #define IBAT_TRIM_GOOD_BIT		BIT(7)
 #define IBAT_TRIM_LOW_LIM		20
@@ -3754,7 +3754,7 @@ qpnp_chg_batt_temp_warning(struct qpnp_chg_chip *chip)
 				WARNING_EVENT_TRIGGER = CHARGING_EVENT_NORMAL;
 				qpnp_chg_buck_control(chip, 1);
 				qpnp_chg_tchg_max_en(chip, 1);
-				qpnp_chg_iusbmax_set(chip, 2100);
+				qpnp_chg_iusbmax_set(chip, 1500);
 				qpnp_chg_vddmax_and_trim_set(chip,CHARGING_FULL_VOLTAGE, 10);
 			} else
 				pr_debug("TEMPERATURE_OVER_RANGE_THREE_TIMES");
@@ -3778,7 +3778,7 @@ qpnp_chg_batt_temp_warning(struct qpnp_chg_chip *chip)
 		WARNING_EVENT_TRIGGER = CHARGING_EVENT_NORMAL;
 		if (temper < 450) {
 			qpnp_chg_tchg_max_en(chip, 1);
-			qpnp_chg_iusbmax_set(chip, 2100);
+			qpnp_chg_iusbmax_set(chip, 1500);
 			qpnp_chg_vddmax_and_trim_set(chip,CHARGING_FULL_VOLTAGE, 10);
 		} else {
 			qpnp_chg_iusbmax_set(chip, 400);
