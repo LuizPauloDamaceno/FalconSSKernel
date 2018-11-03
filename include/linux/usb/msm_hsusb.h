@@ -102,12 +102,12 @@ enum msm_usb_phy_type {
 	SNPS_28NM_INTEGRATED_PHY,
 };
 
-#define IDEV_CHG_MAX	2100
-#define IDEV_CHG_MIN	1500
+#define IDEV_CHG_MAX	1300
+#define IDEV_CHG_MIN	325
 #define IUNIT		100
 
-#define IDEV_ACA_CHG_MAX	2100
-#define IDEV_ACA_CHG_LIMIT	1500
+#define IDEV_ACA_CHG_MAX	1300
+#define IDEV_ACA_CHG_LIMIT	1300
 
 /**
  * Different states involved in USB charger detection.

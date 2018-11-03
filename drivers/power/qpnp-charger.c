@@ -220,10 +220,10 @@
 #define BOOST_FLASH_WA			BIT(1)
 #define POWER_STAGE_WA			BIT(2)
 
-#define CHG_MAINTENANCE_PERIOD	5000
+#define CHG_MAINTENANCE_PERIOD	10000
 #define CHARGING_MAINT_VOLT_S1   4110
-#define CHARGING_MAINT_VOLT_S2   4200
-#define CHARGING_FULL_VOLTAGE    4250
+#define CHARGING_MAINT_VOLT_S2   4160
+#define CHARGING_FULL_VOLTAGE    4220
 
 struct qpnp_chg_irq {
 	int		irq;
@@ -879,7 +879,7 @@ qpnp_chg_is_ichg_loop_active(struct qpnp_chg_chip *chip)
 #define QPNP_CHG_I_MAX_MIN_100		100
 #define QPNP_CHG_I_MAX_MIN_150		150
 #define QPNP_CHG_I_MAX_MIN_MA		200
-#define QPNP_CHG_I_MAX_MAX_MA		1500
+#define QPNP_CHG_I_MAX_MAX_MA		2500
 #define QPNP_CHG_I_MAXSTEP_MA		100
 static int
 qpnp_chg_idcmax_set(struct qpnp_chg_chip *chip, int mA)
@@ -905,7 +905,7 @@ qpnp_chg_idcmax_set(struct qpnp_chg_chip *chip, int mA)
 			chip->dc_chgpth_base + CHGR_I_MAX_REG, 1);
 	}
 
-	dc = 1500 / QPNP_CHG_I_MAXSTEP_MA;
+	dc = mA / QPNP_CHG_I_MAXSTEP_MA;
 
 	pr_debug("current=%d setting 0x%x\n", mA, dc);
 	rc = qpnp_chg_write(chip, &dc,
@@ -980,7 +980,6 @@ qpnp_chg_iusbmax_set(struct qpnp_chg_chip *chip, int mA)
 	}
 
 	/* Impose input current limit */
-	mA = 1500;
 	if (chip->maxinput_usb_ma)
 		mA = (chip->maxinput_usb_ma) <= mA ? chip->maxinput_usb_ma : mA;
 
@@ -1013,11 +1012,11 @@ qpnp_chg_iusbmax_set(struct qpnp_chg_chip *chip, int mA)
 }
 
 #define QPNP_CHG_VINMIN_MIN_MV		4000
-#define QPNP_CHG_VINMIN_HIGH_MIN_MV	5100
+#define QPNP_CHG_VINMIN_HIGH_MIN_MV	5600
 #define QPNP_CHG_VINMIN_HIGH_MIN_VAL	0x2B
 #define QPNP_CHG_VINMIN_MAX_MV		9600
 #define QPNP_CHG_VINMIN_STEP_MV		50
-#define QPNP_CHG_VINMIN_STEP_HIGH_MV	100
+#define QPNP_CHG_VINMIN_STEP_HIGH_MV	200
 #define QPNP_CHG_VINMIN_MASK		0x3F
 #define QPNP_CHG_VINMIN_MIN_VAL	0x0C
 static int
@@ -1672,7 +1671,7 @@ qpnp_chg_regulator_batfet_set(struct qpnp_chg_chip *chip, bool enable)
 	return rc;
 }
 
-#define USB_WALL_THRESHOLD_MA	2000
+#define USB_WALL_THRESHOLD_MA	500
 #define ENUM_T_STOP_BIT		BIT(0)
 #define USB_5V_UV	5000000
 #define USB_9V_UV	9000000
@@ -2685,7 +2684,7 @@ qpnp_batt_external_power_changed(struct power_supply *psy)
 							OVP_USB_WALL_TRSH_MA);
 			} else {
 				if (telephony_on) {
-					qpnp_chg_iusbmax_set(chip, 500);
+					qpnp_chg_iusbmax_set(chip, 400);
 					qpnp_chg_vddmax_and_trim_set(chip_pointer,3980,10);
 					pr_debug("batt_set_telephony_status--In Talk mode");
 				} else {
@@ -2767,7 +2766,7 @@ qpnp_batt_power_get_property(struct power_supply *psy,
 		val->intval = get_prop_batt_present(chip);
 		break;
 	case POWER_SUPPLY_PROP_TECHNOLOGY:
-		val->intval = POWER_SUPPLY_TECHNOLOGY_LIPO;
+		val->intval = POWER_SUPPLY_TECHNOLOGY_LION;
 		break;
 	case POWER_SUPPLY_PROP_VOLTAGE_MAX_DESIGN:
 		val->intval = chip->max_voltage_mv * 1000;
@@ -3032,7 +3031,7 @@ qpnp_chg_vddsafe_set(struct qpnp_chg_chip *chip, int voltage)
 		chip->chgr_base + CHGR_VDD_SAFE, 1);
 }
 
-#define IBAT_TRIM_TGT_MA		1500
+#define IBAT_TRIM_TGT_MA		500
 #define IBAT_TRIM_OFFSET_MASK		0x7F
 #define IBAT_TRIM_GOOD_BIT		BIT(7)
 #define IBAT_TRIM_LOW_LIM		20
@@ -3182,7 +3181,7 @@ qpnp_chg_input_current_settled(struct qpnp_chg_chip *chip)
 
 
 #define BOOST_MIN_UV	4200000
-#define BOOST_MAX_UV	5700000
+#define BOOST_MAX_UV	5500000
 #define BOOST_STEP_UV	50000
 #define BOOST_MIN	16
 #define N_BOOST_V	((BOOST_MAX_UV - BOOST_MIN_UV) / BOOST_STEP_UV + 1)
@@ -3590,7 +3589,7 @@ qpnp_eoc_work(struct work_struct *work)
 	}
 
 	if (telephony_on >= 1) {
-		qpnp_chg_iusbmax_set(chip, 500);
+		qpnp_chg_iusbmax_set(chip, 400);
 		qpnp_chg_vddmax_and_trim_set(chip_pointer,3980,10);
 		pr_debug("batt_set_telephony_status--In Talk mode");
 		goto stop_eoc;
@@ -3754,7 +3753,7 @@ qpnp_chg_batt_temp_warning(struct qpnp_chg_chip *chip)
 				WARNING_EVENT_TRIGGER = CHARGING_EVENT_NORMAL;
 				qpnp_chg_buck_control(chip, 1);
 				qpnp_chg_tchg_max_en(chip, 1);
-				qpnp_chg_iusbmax_set(chip, 1500);
+				qpnp_chg_iusbmax_set(chip, 1300);
 				qpnp_chg_vddmax_and_trim_set(chip,CHARGING_FULL_VOLTAGE, 10);
 			} else
 				pr_debug("TEMPERATURE_OVER_RANGE_THREE_TIMES");
@@ -3776,9 +3775,9 @@ qpnp_chg_batt_temp_warning(struct qpnp_chg_chip *chip)
 
 	} else if (WARNING_EVENT_TRIGGER == CHARGING_EVENT_TEMPERATURE_WARNING) {
 		WARNING_EVENT_TRIGGER = CHARGING_EVENT_NORMAL;
-		if (temper < 450) {
+		if (temper < 550) {
 			qpnp_chg_tchg_max_en(chip, 1);
-			qpnp_chg_iusbmax_set(chip, 1500);
+			qpnp_chg_iusbmax_set(chip, 1300);
 			qpnp_chg_vddmax_and_trim_set(chip,CHARGING_FULL_VOLTAGE, 10);
 		} else {
 			qpnp_chg_iusbmax_set(chip, 400);
@@ -5705,3 +5704,4 @@ module_exit(qpnp_chg_exit);
 MODULE_DESCRIPTION("QPNP charger driver");
 MODULE_LICENSE("GPL v2");
 MODULE_ALIAS("platform:" QPNP_CHARGER_DEV_NAME);
+
