@@ -221,9 +221,9 @@
 #define POWER_STAGE_WA			BIT(2)
 
 #define CHG_MAINTENANCE_PERIOD	400
-#define CHARGING_MAINT_VOLT_S1   4100
-#define CHARGING_MAINT_VOLT_S2   4190
-#define CHARGING_FULL_VOLTAGE    4200
+#define CHARGING_MAINT_VOLT_S1   4180
+#define CHARGING_MAINT_VOLT_S2   4250
+#define CHARGING_FULL_VOLTAGE    4320
 
 struct qpnp_chg_irq {
 	int		irq;
@@ -1012,8 +1012,8 @@ qpnp_chg_iusbmax_set(struct qpnp_chg_chip *chip, int mA)
 	return rc;
 }
 
-#define QPNP_CHG_VINMIN_MIN_MV		4400
-#define QPNP_CHG_VINMIN_HIGH_MIN_MV	5100
+#define QPNP_CHG_VINMIN_MIN_MV		4000
+#define QPNP_CHG_VINMIN_HIGH_MIN_MV	5500
 #define QPNP_CHG_VINMIN_HIGH_MIN_VAL	0x2B
 #define QPNP_CHG_VINMIN_MAX_MV		9600
 #define QPNP_CHG_VINMIN_STEP_MV		50
@@ -1672,7 +1672,7 @@ qpnp_chg_regulator_batfet_set(struct qpnp_chg_chip *chip, bool enable)
 	return rc;
 }
 
-#define USB_WALL_THRESHOLD_MA	1500
+#define USB_WALL_THRESHOLD_MA	2000
 #define ENUM_T_STOP_BIT		BIT(0)
 #define USB_5V_UV	5000000
 #define USB_9V_UV	9000000
@@ -3032,7 +3032,7 @@ qpnp_chg_vddsafe_set(struct qpnp_chg_chip *chip, int voltage)
 		chip->chgr_base + CHGR_VDD_SAFE, 1);
 }
 
-#define IBAT_TRIM_TGT_MA		1500
+#define IBAT_TRIM_TGT_MA		2100
 #define IBAT_TRIM_OFFSET_MASK		0x7F
 #define IBAT_TRIM_GOOD_BIT		BIT(7)
 #define IBAT_TRIM_LOW_LIM		20
