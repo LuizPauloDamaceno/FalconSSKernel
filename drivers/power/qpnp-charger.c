@@ -1012,7 +1012,7 @@ qpnp_chg_iusbmax_set(struct qpnp_chg_chip *chip, int mA)
 }
 
 #define QPNP_CHG_VINMIN_MIN_MV		4000
-#define QPNP_CHG_VINMIN_HIGH_MIN_MV	5600
+#define QPNP_CHG_VINMIN_HIGH_MIN_MV	5200
 #define QPNP_CHG_VINMIN_HIGH_MIN_VAL	0x2B
 #define QPNP_CHG_VINMIN_MAX_MV		9600
 #define QPNP_CHG_VINMIN_STEP_MV		50
@@ -1671,7 +1671,7 @@ qpnp_chg_regulator_batfet_set(struct qpnp_chg_chip *chip, bool enable)
 	return rc;
 }
 
-#define USB_WALL_THRESHOLD_MA	500
+#define USB_WALL_THRESHOLD_MA	1300
 #define ENUM_T_STOP_BIT		BIT(0)
 #define USB_5V_UV	5000000
 #define USB_9V_UV	9000000
@@ -2684,7 +2684,7 @@ qpnp_batt_external_power_changed(struct power_supply *psy)
 							OVP_USB_WALL_TRSH_MA);
 			} else {
 				if (telephony_on) {
-					qpnp_chg_iusbmax_set(chip, 400);
+					qpnp_chg_iusbmax_set(chip, 700);
 					qpnp_chg_vddmax_and_trim_set(chip_pointer,3980,10);
 					pr_debug("batt_set_telephony_status--In Talk mode");
 				} else {
@@ -2766,7 +2766,7 @@ qpnp_batt_power_get_property(struct power_supply *psy,
 		val->intval = get_prop_batt_present(chip);
 		break;
 	case POWER_SUPPLY_PROP_TECHNOLOGY:
-		val->intval = POWER_SUPPLY_TECHNOLOGY_LION;
+		val->intval = POWER_SUPPLY_TECHNOLOGY_LIPO;
 		break;
 	case POWER_SUPPLY_PROP_VOLTAGE_MAX_DESIGN:
 		val->intval = chip->max_voltage_mv * 1000;
@@ -3031,7 +3031,7 @@ qpnp_chg_vddsafe_set(struct qpnp_chg_chip *chip, int voltage)
 		chip->chgr_base + CHGR_VDD_SAFE, 1);
 }
 
-#define IBAT_TRIM_TGT_MA		500
+#define IBAT_TRIM_TGT_MA		900
 #define IBAT_TRIM_OFFSET_MASK		0x7F
 #define IBAT_TRIM_GOOD_BIT		BIT(7)
 #define IBAT_TRIM_LOW_LIM		20
@@ -3589,7 +3589,7 @@ qpnp_eoc_work(struct work_struct *work)
 	}
 
 	if (telephony_on >= 1) {
-		qpnp_chg_iusbmax_set(chip, 400);
+		qpnp_chg_iusbmax_set(chip, 700);
 		qpnp_chg_vddmax_and_trim_set(chip_pointer,3980,10);
 		pr_debug("batt_set_telephony_status--In Talk mode");
 		goto stop_eoc;
@@ -3722,13 +3722,13 @@ qpnp_chg_batt_temp_warning(struct qpnp_chg_chip *chip)
 
 	temper = get_prop_batt_temp(chip);
 
-	if (temper > 550) {
+	if (temper > 650) {
 		if (WARNING_EVENT_TRIGGER == CHARGING_EVENT_NORMAL) {
 			WARNING_EVENT_TRIGGER = CHARGING_EVENT_TEMPERATURE_OVER_RANGE_H;
 			qpnp_chg_buck_control(chip, 0);
 			qpnp_chg_tchg_max_en(chip,0);
 		}
-	} else if (temper < 530) {
+	} else if (temper < 630) {
 		if (WARNING_EVENT_TRIGGER == CHARGING_EVENT_TEMPERATURE_OVER_RANGE_H) {
 			counter_hi ++;
 			if (counter_hi < 3) {
@@ -3740,7 +3740,7 @@ qpnp_chg_batt_temp_warning(struct qpnp_chg_chip *chip)
 		}
 	}
 
-	if (temper < 50) {
+	if (temper < 60) {
 		if (WARNING_EVENT_TRIGGER == CHARGING_EVENT_NORMAL) {
 			WARNING_EVENT_TRIGGER = CHARGING_EVENT_TEMPERATURE_OVER_RANGE_L;
 			qpnp_chg_buck_control(chip, 0);
@@ -3760,7 +3760,7 @@ qpnp_chg_batt_temp_warning(struct qpnp_chg_chip *chip)
 		}
 	}
 
-	if (temper > 450 && temper <= 550) {
+	if (temper > 450 && temper <= 600) {
 		if (WARNING_EVENT_TRIGGER == CHARGING_EVENT_NORMAL)
 			WARNING_EVENT_TRIGGER = CHARGING_EVENT_TEMPERATURE_WARNING;
 		if (maintenance_counter > 1) {
@@ -3770,17 +3770,17 @@ qpnp_chg_batt_temp_warning(struct qpnp_chg_chip *chip)
 		}
 		flush_delayed_work_sync(&chip->eoc_work);
 		qpnp_chg_tchg_max_en(chip, 0);
-		qpnp_chg_iusbmax_set(chip, 400);
+		qpnp_chg_iusbmax_set(chip, 700);
 		qpnp_chg_vddmax_and_trim_set(chip, 3980, 10);
 
 	} else if (WARNING_EVENT_TRIGGER == CHARGING_EVENT_TEMPERATURE_WARNING) {
 		WARNING_EVENT_TRIGGER = CHARGING_EVENT_NORMAL;
-		if (temper < 550) {
+		if (temper < 600) {
 			qpnp_chg_tchg_max_en(chip, 1);
 			qpnp_chg_iusbmax_set(chip, 1300);
 			qpnp_chg_vddmax_and_trim_set(chip,CHARGING_FULL_VOLTAGE, 10);
 		} else {
-			qpnp_chg_iusbmax_set(chip, 400);
+			qpnp_chg_iusbmax_set(chip, 700);
 			qpnp_chg_vddmax_and_trim_set(chip, 3980, 10);
 		}
 	}
@@ -5172,7 +5172,7 @@ static ssize_t batt_set_telephony_status(struct device *dev,
     			flush_delayed_work_sync(&chip_pointer->eoc_work); 
 
 			qpnp_chg_tchg_max_en(chip_pointer,0);
-			qpnp_chg_iusbmax_set(chip_pointer, 400);
+			qpnp_chg_iusbmax_set(chip_pointer, 700);
 			qpnp_chg_vddmax_and_trim_set(chip_pointer,3980,10);
 		}
 		pr_debug("batt_set_telephony_status--In Talk mode");

@@ -103,7 +103,7 @@ enum msm_usb_phy_type {
 };
 
 #define IDEV_CHG_MAX	1300
-#define IDEV_CHG_MIN	325
+#define IDEV_CHG_MIN	900
 #define IUNIT		100
 
 #define IDEV_ACA_CHG_MAX	1300

@@ -3636,7 +3636,7 @@ static int64_t read_battery_id(struct qpnp_bms_chip *chip)
 static int set_battery_data(struct qpnp_bms_chip *chip)
 {
 	int64_t battery_id;
-	int rc = 0, dt_data = true;
+	int rc = 0, dt_data = false;
 	struct bms_battery_data *batt_data;
 	struct device_node *node;
 
