@@ -1159,7 +1159,7 @@
 		label = "batt_therm";
 		reg = <0x30>;
 		qcom,decimation = <0>;
-		qcom,pre-div-channel-scaling = <0>;
+		qcom,pre-div-channel-scaling = <2>;
 		qcom,calibration-type = "absolute";
 		qcom,scale-function = <1>;
 		qcom,hw-settle-time = <2>;
@@ -1206,7 +1206,7 @@
 		label = "batt_therm";
 		reg = <0x30>;
 		qcom,decimation = <0>;
-		qcom,pre-div-channel-scaling = <0>;
+		qcom,pre-div-channel-scaling = <2>;
 		qcom,calibration-type = "absolute";
 		qcom,scale-function = <1>;
 		qcom,hw-settle-time = <2>;

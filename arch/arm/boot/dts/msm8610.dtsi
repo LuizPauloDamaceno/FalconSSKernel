@@ -451,6 +451,18 @@
 
 	qcom,bcl {
 		compatible = "qcom,bcl";
+ 		qcom,bcl-enable;
+		qcom,bcl-framework-interface;
+		qcom,bcl-freq-control-list = <&CPU0>; 
+		qcom,ibat-monitor {
+			qcom,high-threshold-uamp = <600000>;
+			qcom,low-threshold-uamp = <420000>;
+			qcom,mitigation-freq-khz = <787200>;
+			qcom,vph-high-threshold-uv = <3600000>;
+			qcom,vph-low-threshold-uv = <3400000>;
+			qcom,soc-low-threshold = <12>;
+			qcom,thermal-handle = <&msm_thermal_freq>;
+		};
 	};
 
 	qcom,msm-mem-hole {

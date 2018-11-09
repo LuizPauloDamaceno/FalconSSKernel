@@ -13,7 +13,7 @@
 #include <linux/batterydata-lib.h>
 
 static struct single_row_lut fcc_temp = {
-	.x		= {-20, 0, 25, 40, 60},
+	.x		= {-20, 0, 25, 45, 65},
 	.y		= {425, 450, 500, 525, 510},
 	.cols	= 5
 };
@@ -27,7 +27,7 @@ static struct single_row_lut fcc_sf = {
 static struct sf_lut rbatt_sf = {
 	.rows		= 30,
 	.cols		= 5,
-	.row_entries		= {-20, 0, 25, 40, 60},
+	.row_entries		= {-20, 0, 25, 45, 65},
 	.percent	= {100, 95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 16, 13, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1},
 	.sf		= {
 				{1071, 270, 100, 83, 76},
@@ -66,7 +66,7 @@ static struct sf_lut rbatt_sf = {
 static struct pc_temp_ocv_lut pc_temp_ocv = {
 	.rows		= 31,
 	.cols		= 5,
-	.temp		= {-20, 0, 25, 40, 60},
+	.temp		= {-20, 0, 25, 45, 65},
 	.percent	= {100, 95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20, 16, 13, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0},
 	.ocv		= {
 				{4148, 4147, 4186, 4130, 4123},
@@ -109,7 +109,8 @@ struct bms_battery_data Arima_Falcon_1700mAh_data = {
 	.fcc_sf_lut			= &fcc_sf,
 	.pc_temp_ocv_lut		= &pc_temp_ocv,
 	.rbatt_sf_lut			= &rbatt_sf,
-	.default_rbatt_mohm	= 172
+	.default_rbatt_mohm	= 172,
+	.batt_id_kohm = 100
 };
 
 
