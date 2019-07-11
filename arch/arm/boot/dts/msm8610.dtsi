@@ -455,8 +455,8 @@
 		qcom,bcl-framework-interface;
 		qcom,bcl-freq-control-list = <&CPU0>; 
 		qcom,ibat-monitor {
-			qcom,high-threshold-uamp = <600000>;
-			qcom,low-threshold-uamp = <420000>;
+			qcom,high-threshold-uamp = <1500000>;
+			qcom,low-threshold-uamp = <750000>;
 			qcom,mitigation-freq-khz = <787200>;
 			qcom,vph-high-threshold-uv = <3600000>;
 			qcom,vph-low-threshold-uv = <3400000>;

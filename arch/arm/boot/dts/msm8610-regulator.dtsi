@@ -396,6 +396,7 @@
 			regulator-min-microvolt = <2850000>;
 			regulator-max-microvolt = <2850000>;
 			qcom,init-voltage = <2850000>;
+			qcom,init-quiet-mode = <1>; //Lower regulator output noise
 			status = "okay";
 		};
 	};
