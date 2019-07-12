@@ -505,7 +505,8 @@
 			< 787200000 2>,
 			<1190400000 3>,
 			<1248000000 3>,
-			<1267200000 3>;
+			<1267200000 3>,
+			<1305600000 3>;
 
 		cpu-vdd-supply = <&apc_vreg_corner>;
 	};
@@ -534,7 +535,8 @@
 			<  998400 2664 >,
 			< 1190400 3200 >,
 			< 1248000 3464 >,
-			< 1267200 4000 >;
+			< 1267200 3464 >,
+			< 1305600 3464 >;
 	};
 
 	spmi_bus: qcom,spmi@fc4c0000 {
@@ -901,17 +903,17 @@
 		compatible = "qcom,msm-thermal";
 		qcom,sensor-id = <5>;
 		qcom,poll-ms = <120>;
-		qcom,limit-temp = <52>;
+		qcom,limit-temp = <65>;
 		qcom,temp-hysteresis = <2>;
 		qcom,freq-step = <2>;
 		qcom,freq-control-mask = <0xf>;
 		qcom,core-limit-temp = <72>;
 		qcom,core-temp-hysteresis = <5>;
 		qcom,core-control-mask = <0xe>;
-		qcom,hotplug-temp = <53>;
+		qcom,hotplug-temp = <70>;
 		qcom,hotplug-temp-hysteresis = <1>;
 		qcom,cpu-sensors = "tsens_tz_sensor5", "tsens_tz_sensor5";
-		qcom,vdd-restriction-temp = <51>;
+		qcom,vdd-restriction-temp = <62>;
 		qcom,vdd-restriction-temp-hysteresis = <1>;
 		vdd-dig-supply = <&pm8110_s1_floor_corner>;
 
@@ -923,7 +925,7 @@
 
 		qcom,vdd-apps-rstr{
 			qcom,vdd-rstr-reg = "vdd-apps";
-			qcom,levels = <998400>;
+			qcom,levels = <787200>;
 			qcom,freq-req;
 		};
 	};
