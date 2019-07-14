@@ -903,29 +903,29 @@
 		compatible = "qcom,msm-thermal";
 		qcom,sensor-id = <5>;
 		qcom,poll-ms = <120>;
-		qcom,limit-temp = <65>;
+		qcom,limit-temp = <72>;
 		qcom,temp-hysteresis = <2>;
 		qcom,freq-step = <2>;
 		qcom,freq-control-mask = <0xf>;
-		qcom,core-limit-temp = <72>;
+		qcom,core-limit-temp = <75>;
 		qcom,core-temp-hysteresis = <5>;
 		qcom,core-control-mask = <0xe>;
-		qcom,hotplug-temp = <70>;
+		qcom,hotplug-temp = <80>;
 		qcom,hotplug-temp-hysteresis = <1>;
 		qcom,cpu-sensors = "tsens_tz_sensor5", "tsens_tz_sensor5";
-		qcom,vdd-restriction-temp = <62>;
+		qcom,vdd-restriction-temp = <77>;
 		qcom,vdd-restriction-temp-hysteresis = <1>;
 		vdd-dig-supply = <&pm8110_s1_floor_corner>;
 
 		qcom,vdd-dig-rstr{
 			qcom,vdd-rstr-reg = "vdd-dig";
-			qcom,levels = <7>; /* Super Turbo */
-			qcom,min-level = <5>; /* No Request */
+			qcom,levels = <5 7 7>; /* Nominal, Super Turbo, Super Turbo */
+			qcom,min-level = <1>; /* No Request */
 		};
 
 		qcom,vdd-apps-rstr{
 			qcom,vdd-rstr-reg = "vdd-apps";
-			qcom,levels = <787200>;
+			qcom,levels = <600000 787200 998400>;
 			qcom,freq-req;
 		};
 	};
