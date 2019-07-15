@@ -129,7 +129,6 @@
 			qcom,regulator-type = <1>; //SMPS
 			qcom,hpm-enable = <1>; //Enable HPM Mode
 			qcom,init-smps-mode = <2>; //Force HPM Mode
-			qcom,init-quiet-mode = <1>; //Lower regulator output noise
 			qcom,boost-current-limit = <11>; //3.2A max
 			regulator-min-microvolt = <500000>;
 			regulator-max-microvolt = <1325000>;
@@ -221,7 +220,6 @@
 			qcom,regulator-type = <1>; //SMPS
 			qcom,hpm-enable = <1>; //Enable HPM Mode
 			qcom,init-smps-mode = <2>; //Force HPM Mode
-			qcom,init-quiet-mode = <1>; //Lower regulator output noise
 			qcom,boost-current-limit = <11>; //3.2A max
 			regulator-min-microvolt = <750000>;
 			regulator-max-microvolt = <1350000>;
