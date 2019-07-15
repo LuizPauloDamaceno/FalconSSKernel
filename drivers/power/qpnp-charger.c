@@ -221,9 +221,9 @@
 #define POWER_STAGE_WA			BIT(2)
 
 #define CHG_MAINTENANCE_PERIOD	10000
-#define CHARGING_MAINT_VOLT_S1   4110
-#define CHARGING_MAINT_VOLT_S2   4250
-#define CHARGING_FULL_VOLTAGE    4270
+#define CHARGING_MAINT_VOLT_S1   4150
+#define CHARGING_MAINT_VOLT_S2   4240
+#define CHARGING_FULL_VOLTAGE    4250
 
 struct qpnp_chg_irq {
 	int		irq;
@@ -878,9 +878,9 @@ qpnp_chg_is_ichg_loop_active(struct qpnp_chg_chip *chip)
 
 #define QPNP_CHG_I_MAX_MIN_100		100
 #define QPNP_CHG_I_MAX_MIN_150		150
-#define QPNP_CHG_I_MAX_MIN_MA		200
+#define QPNP_CHG_I_MAX_MIN_MA		50
 #define QPNP_CHG_I_MAX_MAX_MA		2500
-#define QPNP_CHG_I_MAXSTEP_MA		100
+#define QPNP_CHG_I_MAXSTEP_MA		10
 static int
 qpnp_chg_idcmax_set(struct qpnp_chg_chip *chip, int mA)
 {
@@ -2871,8 +2871,8 @@ qpnp_chg_bat_if_configure_btc(struct qpnp_chg_chip *chip)
 
 #define QPNP_CHG_IBATSAFE_MIN_MA		100
 #define QPNP_CHG_IBATSAFE_MAX_MA		3250
-#define QPNP_CHG_I_STEP_MA		50
-#define QPNP_CHG_I_MIN_MA		100
+#define QPNP_CHG_I_STEP_MA		10
+#define QPNP_CHG_I_MIN_MA		50
 #define QPNP_CHG_I_MASK			0x3F
 static int
 qpnp_chg_ibatsafe_set(struct qpnp_chg_chip *chip, int safe_current)
@@ -2891,9 +2891,9 @@ qpnp_chg_ibatsafe_set(struct qpnp_chg_chip *chip, int safe_current)
 			QPNP_CHG_I_MASK, temp, 1);
 }
 
-#define QPNP_CHG_ITERM_MIN_MA		100
+#define QPNP_CHG_ITERM_MIN_MA		50
 #define QPNP_CHG_ITERM_MAX_MA		250
-#define QPNP_CHG_ITERM_STEP_MA		50
+#define QPNP_CHG_ITERM_STEP_MA		10
 #define QPNP_CHG_ITERM_MASK			0x03
 static int
 qpnp_chg_ibatterm_set(struct qpnp_chg_chip *chip, int term_current)

@@ -62,15 +62,15 @@
 			qcom,warm-bat-decidegc = <65>;
 			qcom,cool-bat-decidegc = <5>;
 			qcom,ibat-calibration-enabled = <1>;
-			qcom,vddmax-mv = <4270>;
-			qcom,vddsafe-mv = <4270>;
-			qcom,vinmin-mv = <4270>;
+			qcom,vddmax-mv = <4250>;
+			qcom,vddsafe-mv = <4250>;
+			qcom,vinmin-mv = <4250>;
 			qcom,vbatdet-mv = <4110>;
 			qcom,vbatweak-mv = <3200>;
-			qcom,ibatmax-ma = <350>;
-			qcom,ibatmax-cool-ma = <350>;
-			qcom,ibatterm-ma = <100>;
-			qcom,ibatsafe-ma = <350>;
+			qcom,ibatmax-ma = <250>;
+			qcom,ibatmax-cool-ma = <250>;
+			qcom,ibatterm-ma = <50>;
+			qcom,ibatsafe-ma = <250>;
 			qcom,thermal-mitigation = <1300 700 600 325>;
 			qcom,vbatdet-delta-mv = <100>;
 			qcom,resume-soc = <100>;
@@ -78,7 +78,7 @@
 			qcom,chg-vadc = <&pm8110_vadc>;
 			qcom,chg-adc_tm = <&pm8110_adc_tm>;
 			qcom,tchg-mins-usb = <240>;
-			qcom,tchg-mins-wall = <120>;
+			qcom,tchg-mins-wall = <240>;
 			qcom,cycle-counter-en;
 			qcom,capacity-learning-on;
 
@@ -338,7 +338,7 @@
 			qcom,r-sense-uohm = <100000>;
 			qcom,batt-id-kohm = <100>;
 			qcom,v-cutoff-uv = <3100000>;
-			qcom,max-voltage-uv = <4270000>;
+			qcom,max-voltage-uv = <4250000>;
 			qcom,r-conn-mohm = <62>;
 			qcom,shutdown-soc-valid-limit = <20>;
 			qcom,adjust-soc-low-threshold = <15>;
@@ -348,7 +348,7 @@
 			qcom,low-voltage-calculate-soc-ms = <1000>;
 			qcom,low-soc-calculate-soc-ms = <1000>;
 			qcom,calculate-soc-ms = <1000>;
-			qcom,chg-term-ua = <100000>;
+			qcom,chg-term-ua = <50000>;
 			qcom,batt-type = <6>;
 			qcom,low-voltage-threshold = <3350000>;
 			qcom,tm-temp-margin = <5000>;
